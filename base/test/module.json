@@ -1,0 +1,9 @@
+{
+    "alias": "test",
+    "name": "WebEd test",
+    "author": "Mahbub",
+    "description": "WebEd test",
+    "namespace": "WebEd\\Base\\Test",
+    "version": "1.0",
+    "autoload": "psr-4"
+}
