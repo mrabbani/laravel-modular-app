@@ -10,7 +10,8 @@ class MakeModel extends AbstractGenerator
     protected $signature = 'module:make:model
     	{alias : The alias of the module}
     	{name : The class name}
-    	{table : The table name}';
+    	{--with-contract : create model related contract}'
+    ;
 
     /**
      * The type of class being generated.
@@ -47,13 +48,17 @@ class MakeModel extends AbstractGenerator
         /**
          * Create model contract
          */
-        $this->buildContract = true;
-        $contractName = 'Contracts/' . get_file_name($path, '.php');
-        $contractPath = get_base_folder($path) . $contractName . 'ModelContract.php';
 
-        $this->makeDirectory($contractPath);
+        if($this->option('with-contract')) {
+            $this->buildContract = true;
 
-        $this->files->put($contractPath, $this->buildClass('Models\\' . $contractName));
+            $contractName = 'Contracts/' . get_file_name($path, '.php');
+            $contractPath = get_base_folder($path) . $contractName . 'ModelContract.php';
+
+            $this->makeDirectory($contractPath);
+            $this->files->put($contractPath, $this->buildClass('Models\\' . $contractName));
+        }
+
 
         $this->info($this->type . ' created successfully.');
     }
@@ -84,7 +89,7 @@ class MakeModel extends AbstractGenerator
         $stub = str_replace([
             '{table}',
         ], [
-            $this->argument('table'),
+            snake_case(str_plural($this->argument('name'))),
         ], $stub);
     }
 }

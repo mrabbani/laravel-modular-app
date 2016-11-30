@@ -17,10 +17,10 @@ abstract class AbstractGenerator extends GeneratorCommand
     protected function resolveModuleRootFolder($module)
     {
         switch (array_get($module, 'type')) {
-            case 'base':
+            case config('module_manager.module_directory'):
                 $path = webed_base_path();
                 break;
-            case 'plugin':
+            case config('module_manager.module_directory'):
             default:
                 $path = webed_plugins_path();
                 break;

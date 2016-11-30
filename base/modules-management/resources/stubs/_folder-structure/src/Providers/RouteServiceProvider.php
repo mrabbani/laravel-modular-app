@@ -1,30 +1,71 @@
 <?php namespace DummyNamespace\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Routing\Router;
 
 class RouteServiceProvider extends ServiceProvider
 {
     protected $namespace = 'DummyNamespace\Http\Controllers';
 
-    public function map(Router $router)
+
+    /**
+     * Define your route model bindings, pattern filters, etc.
+     *
+     * @return void
+     */
+    public function boot()
     {
-        $router->group(['namespace' => $this->namespace, 'middleware' => 'web'], function (Router $router) {
+        //
 
-            $adminRoute = config('webed.admin_route');
+        parent::boot();
+    }
 
-            $moduleRoute = 'DummyAlias';
+    /**
+     * Define the routes for the application.
+     *
+     * @return void
+     */
+    public function map()
+    {
+        $this->mapApiRoutes();
 
-            /**
-             * Admin routes
-             */
-            $router->group(['prefix' => $adminRoute], function (Router $router) use ($adminRoute, $moduleRoute) {
-                $router->group(['prefix' => $moduleRoute], function (Router $router) use ($adminRoute, $moduleRoute) {
-                    /**
-                     * Put some route here
-                     */
-                });
-            });
+        $this->mapWebRoutes();
+
+        //
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::group([
+             'middleware' => 'web',
+             'namespace' => $this->namespace,
+        ], function ($router) {
+            require __DIR__ . '/../../routes/web.php';
+        });
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::group([
+             'middleware' => 'api',
+             'namespace' => $this->namespace,
+             'prefix' => 'api'
+         ], function ($router) {
+            require __DIR__ . '/../../routes/api.php';
         });
     }
 }

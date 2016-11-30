@@ -62,7 +62,6 @@ class ModulesManagement
     public function modifyModule($alias, array $data, \Closure $callback = null)
     {
         $currentModule = $this->getModule($alias);
-//        dd($currentModule);
         if (!$currentModule) {
             throw new \RuntimeException('Module not found: ' . $alias);
         }
@@ -205,6 +204,7 @@ class ModulesManagement
          * Save file
          */
         File::put(base_path('composer.json'), json_encode_pretify($composerContent));
+        $this->refreshComposerAutoload();
 
         return $this;
     }
@@ -215,8 +215,7 @@ class ModulesManagement
     public function refreshComposerAutoload()
     {
         $this->composer->dumpAutoloads();
-        $result = response_with_messages('Composer autoload refreshed');
 
-        return $result;
+        return $this;
     }
 }

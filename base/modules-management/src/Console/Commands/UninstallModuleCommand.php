@@ -61,17 +61,13 @@ class UninstallModuleCommand extends Command
 
     protected function registerUninstallModuleService()
     {
-        $module = get_module_information($this->argument('alias'));
         \ModulesManagement::disableModule($this->argument('alias'));
-
+        $module = get_module_information($this->argument('alias'));
         $namespace = str_replace('\\\\', '\\', array_get($module, 'namespace', '') . '\Providers\UninstallModuleServiceProvider');
-        if(class_exists($namespace)) {
-            $this->app->register($namespace);
-            save_module_information($module, [
-                'installed' => false
-            ]);
-        } else {
-            $this->line('Nothing to uninstall');
-        }
+        save_module_information($module, [
+            'installed' => false
+        ]);
+
+
     }
 }

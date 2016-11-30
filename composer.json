@@ -25,7 +25,7 @@
         "psr-4": {
             "ModulerApp\\": "app/",
             "WebEd\\Base\\ModulesManagement\\": "base/modules-management/src/",
-            "ModulerApp\\Module\\Module1\\": "module-list/module1/src"
+            "ModulerApp\\Module\\Mohsin\\": "modules/mohsin/src"
         }
     },
     "autoload-dev": {

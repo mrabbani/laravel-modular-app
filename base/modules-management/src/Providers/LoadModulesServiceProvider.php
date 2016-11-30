@@ -19,14 +19,9 @@ class LoadModulesServiceProvider extends ServiceProvider
 
         foreach ($this->modules as $module) {
             $needToBootstrap = false;
-            if (array_get($module, 'type') === 'base') {
-                if ($module['namespace'] !== 'WebEd\Base\ModulesManagement' && $module['namespace'] !== 'WebEd\Base\Core') {
-                    $needToBootstrap = true;
-                }
-            } else if (array_get($module, 'enabled', null) === true) {
+           if (array_get($module, 'installed', null) === true) {
                 $needToBootstrap = true;
             }
-
             if ($needToBootstrap) {
                 /**
                  * Register module

@@ -1,8 +1,10 @@
-<?php namespace DummyNamespace;
+<?php
+
+namespace ModulerApp\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DummyClass extends  FormRequest
+class Test extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

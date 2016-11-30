@@ -64,16 +64,14 @@ class InstallModuleCommand extends Command
 
     protected function registerInstallModuleService()
     {
-        $module = get_module_information($this->argument('alias'));
         \ModulesManagement::enableModule($this->argument('alias'));
+
+        $module = get_module_information($this->argument('alias'));
         $namespace = str_replace('\\\\', '\\', array_get($module, 'namespace', '') . '\Providers\InstallModuleServiceProvider');
-        if(class_exists($namespace)) {
-            $this->app->register($namespace);
-            save_module_information($module, [
-                'installed' => true
-            ]);
-        } else {
-            $this->line('Nothing to install');
-        }
+
+        save_module_information($module, [
+            'installed' => true
+        ]);
+
     }
 }
