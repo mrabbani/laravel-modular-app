@@ -18,11 +18,11 @@ abstract class AbstractGenerator extends GeneratorCommand
     {
         switch (array_get($module, 'type')) {
             case config('module_manager.module_directory'):
-                $path = webed_base_path();
+                $path = module_base_path();
                 break;
             case config('module_manager.module_directory'):
             default:
-                $path = webed_plugins_path();
+                $path = plugins_base_path();
                 break;
         }
         if (!ends_with('/', $path)) {

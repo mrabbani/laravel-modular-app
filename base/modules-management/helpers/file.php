@@ -1,8 +1,11 @@
 <?php
 
 if (!function_exists('split_files_with_basename')) {
+
     /**
      * @param array $files
+     * @param string $suffix
+     * @return array
      */
     function split_files_with_basename(array $files, $suffix = '.php')
     {
@@ -67,7 +70,7 @@ if (!function_exists('get_base_folder')) {
 if (!function_exists('get_file_name')) {
     /**
      * @param string $path
-     * @param null|string $withSuffix
+     * @param null|string $suffix
      * @return string
      */
     function get_file_name($path, $suffix = null)

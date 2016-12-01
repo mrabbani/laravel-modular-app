@@ -123,17 +123,17 @@ class MakeModule extends Command
     {
         switch ($this->moduleType) {
             case 'module':
-                if (!$this->files->isDirectory(webed_base_path())) {
-                    $this->files->makeDirectory(webed_base_path());
+                if (!$this->files->isDirectory(module_base_path())) {
+                    $this->files->makeDirectory(module_base_path());
                 }
-                return 'webed_base_path';
+                return 'module_base_path';
                 break;
             case 'plugin':
             default:
-                if (!$this->files->isDirectory(webed_plugins_path())) {
-                    $this->files->makeDirectory(webed_plugins_path());
+                if (!$this->files->isDirectory(plugins_base_path())) {
+                    $this->files->makeDirectory(plugins_base_path());
                 }
-                return 'webed_plugins_path';
+                return 'plugins_base_path';
                 break;
         }
     }

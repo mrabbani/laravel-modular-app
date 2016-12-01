@@ -18,6 +18,9 @@ class RollbackCommand extends BaseCommand
      */
     protected $signature = 'module:migrate:rollback
         {alias}
+        {--pretend=}
+        {--database=}
+        {--step=}
     ';
 
     /**
@@ -25,7 +28,7 @@ class RollbackCommand extends BaseCommand
      *
      * @var string
      */
-    protected $description = 'Rollback the last database migration';
+    protected $description = 'Rollback the database migration by module';
 
     /**
      * The migrator instance.
@@ -38,7 +41,6 @@ class RollbackCommand extends BaseCommand
      * Create a new migration rollback command instance.
      *
      * @param  \Illuminate\Database\Migrations\Migrator  $migrator
-     * @return void
      */
     public function __construct(Migrator $migrator)
     {
@@ -57,12 +59,11 @@ class RollbackCommand extends BaseCommand
         if (! $this->confirmToProceed()) {
             return;
         }
-        dd($this->argument('alias'));
 
+        $migrationPath = base_path().'/'. module_relative_path($this->argument('alias')).'database/migrations';
         $this->migrator->setConnection($this->option('database'));
-
         $this->migrator->rollback(
-            $this->getMigrationPaths(), ['pretend' => $this->option('pretend'), 'step' => (int) $this->option('step')]
+            [$migrationPath], ['pretend' => $this->option('pretend'), 'step' => (int) $this->option('step')]
         );
 
         // Once the migrator has run we will grab the note output and send it out to

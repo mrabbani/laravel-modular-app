@@ -1,11 +1,11 @@
 <?php
 
-if (!function_exists('webed_plugins_path')) {
+if (!function_exists('plugins_base_path')) {
     /**
      * @param string $path
      * @return string
      */
-    function webed_plugins_path($path = '')
+    function plugins_base_path($path = '')
     {
         $pluginDirectory = base_path(config('module_manager.plugin_directory'));
 
@@ -13,12 +13,12 @@ if (!function_exists('webed_plugins_path')) {
     }
 }
 
-if (!function_exists('webed_base_path')) {
+if (!function_exists('module_base_path')) {
     /**
      * @param string $path
      * @return string
      */
-    function webed_base_path($path = '')
+    function module_base_path($path = '')
     {
         $moduleDirectory = base_path(config('module_manager.module_directory'));
 
@@ -26,6 +26,21 @@ if (!function_exists('webed_base_path')) {
     }
 }
 
+
+if (!function_exists('module_relative_path')) {
+    /**
+     * @param string $alias
+     * @return string
+     */
+    function module_relative_path($alias)
+    {
+        $module = get_module_information($alias);
+        $path =str_replace('module.json', '', array_get($module, 'file', ''));
+        $relativePath = str_replace(base_path() . '/', '', $path);
+
+        return $relativePath;
+    }
+}
 if (!function_exists('get_all_module_information')) {
     /**
      * @return array
@@ -72,6 +87,20 @@ if (!function_exists('get_module_information')) {
             ->first();
     }
 }
+
+
+if (!function_exists('get_all_module_aliases')) {
+
+    /**
+     * @return array
+     */
+    function get_all_module_aliases()
+    {
+        return collect(get_all_module_information())
+            ->pluck('alias')->unique()->all();
+    }
+}
+
 
 if (!function_exists('get_modules_by_type')) {
     /**
@@ -127,10 +156,12 @@ if (!function_exists('save_module_information')) {
 
 
 if (!function_exists('json_encode_pretify')) {
+
     /**
-     * @param array $files
+     * @param array $data
+     * @return string
      */
-    function json_encode_pretify($data)
+    function json_encode_pretify(array $data)
     {
         return json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }

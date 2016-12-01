@@ -1,6 +1,8 @@
 <?php namespace WebEd\Base\ModulesManagement\Providers;
 
+use Illuminate\Database\Migrations\Migrator;
 use Illuminate\Support\ServiceProvider;
+use WebEd\Base\ModulesManagement\Services\ModuleMigrator;
 
 class ConsoleServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,7 @@ class ConsoleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->generatorCommands();
+        $this->migrationCommands();
         $this->otherCommands();
     }
 
@@ -53,6 +56,28 @@ class ConsoleServiceProvider extends ServiceProvider
         }
     }
 
+    private function migrationCommands()
+    {
+        $this->registerModuleMigrator();
+        $this->registerMigrateCommand();
+
+    }
+
+    private function registerMigrateCommand()
+    {
+        $commands = [
+            'webed.console.command.module-migrate' => \WebEd\Base\ModulesManagement\Console\Migrations\ModuleMigrateCommand::class
+        ];
+        foreach ($commands as $slug => $class) {
+            $this->app->singleton($slug, function ($app) use ($slug, $class) {
+                return $app[$class];
+            });
+
+            $this->commands($slug);
+        }
+        $this->registerRollbackCommand();
+
+    }
     private function otherCommands()
     {
         $commands = [
@@ -69,7 +94,6 @@ class ConsoleServiceProvider extends ServiceProvider
 
             $this->commands($slug);
         }
-        $this->registerRollbackCommand();
     }
     /**
      * Register the "rollback" migration command.
@@ -79,8 +103,18 @@ class ConsoleServiceProvider extends ServiceProvider
     protected function registerRollbackCommand()
     {
         $this->app->singleton('webed.console.command.migration-rollback', function ($app) {
-            return new \WebEd\Base\ModulesManagement\Console\Migrations\RollbackCommand($app['migrator']);
+            return new \WebEd\Base\ModulesManagement\Console\Migrations\RollbackCommand($app['module.migrator']);
         });
         $this->commands('webed.console.command.migration-rollback');
+    }
+    protected function registerModuleMigrator()
+    {
+        // The migrator is responsible for actually running and rollback the migration
+        // files in the application. We'll pass in our database connection resolver
+        // so the migrator can resolve any of these connections when it needs to.
+        $this->app->singleton('module.migrator', function ($app) {
+
+            return new ModuleMigrator($app);
+        });
     }
 }
