@@ -24,7 +24,7 @@
         ],
         "psr-4": {
             "ModulerApp\\": "app/",
-            "WebEd\\Base\\ModulesManagement\\": "base/modules-management/src/",
+            "Mrabbani\\ModuleManager\\": "base/modules-management/src/",
             "ModulerApp\\Module\\Module1\\": "modules/module1/src"
         }
     },

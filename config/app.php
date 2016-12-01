@@ -176,7 +176,7 @@ return [
         // ModulerApp\Providers\BroadcastServiceProvider::class,
         ModulerApp\Providers\EventServiceProvider::class,
         ModulerApp\Providers\RouteServiceProvider::class,
-        WebEd\Base\ModulesManagement\Providers\ModuleProvider::class,
+        Mrabbani\ModuleManager\Providers\ModuleProvider::class,
 
     ],
 

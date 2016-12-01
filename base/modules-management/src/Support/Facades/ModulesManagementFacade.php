@@ -1,4 +1,4 @@
-<?php namespace WebEd\Base\ModulesManagement\Support\Facades;
+<?php namespace Mrabbani\ModuleManager\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -9,6 +9,6 @@ class ModulesManagementFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return \WebEd\Base\ModulesManagement\Support\ModulesManagement::class;
+        return \Mrabbani\ModuleManager\Support\ModulesManagement::class;
     }
 }

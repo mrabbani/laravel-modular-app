@@ -1,4 +1,4 @@
-<?php namespace WebEd\Base\ModulesManagement\Services;
+<?php namespace Mrabbani\ModuleManager\Services;
 use Illuminate\Database\Migrations\Migrator;
 use Illuminate\Support\Arr;
 

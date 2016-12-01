@@ -1,7 +1,7 @@
-<?php namespace WebEd\Base\ModulesManagement\Providers;
+<?php namespace Mrabbani\ModuleManager\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use WebEd\Base\ModulesManagement\Support\Facades\ModulesManagementFacade;
+use Mrabbani\ModuleManager\Support\Facades\ModulesManagementFacade;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -12,17 +12,6 @@ class ModuleProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*Load views*/
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'webed-modules-management');
-        /*Load translations*/
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'webed-modules-management');
-
-        $this->publishes([
-            __DIR__ . '/../../resources/views' => config('view.paths')[0] . '/vendor/webed-modules-management',
-        ], 'views');
-        $this->publishes([
-            __DIR__ . '/../../resources/lang' => base_path('resources/lang/vendor/webed-modules-management'),
-        ], 'lang');
         $this->publishes([
             __DIR__ . '/../../config' => base_path('config'),
         ], 'config');
@@ -39,9 +28,7 @@ class ModuleProvider extends ServiceProvider
         $this->loadHelpers();
 
         $this->app->register(ConsoleServiceProvider::class);
-        $this->app->register(RouteServiceProvider::class);
         $this->app->register(LoadModulesServiceProvider::class);
-        $this->app->register(BootstrapModuleServiceProvider::class);
         $this->mergeConfigFrom(
             __DIR__.'/../../config/module_manager.php', 'module_manager'
         );

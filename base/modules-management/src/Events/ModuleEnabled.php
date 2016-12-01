@@ -1,4 +1,4 @@
-<?php namespace WebEd\Base\ModulesManagement\Events;
+<?php namespace Mrabbani\ModuleManager\Events;
 
 class ModuleEnabled
 {

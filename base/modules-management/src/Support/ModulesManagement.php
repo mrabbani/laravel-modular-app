@@ -1,8 +1,8 @@
-<?php namespace WebEd\Base\ModulesManagement\Support;
+<?php namespace Mrabbani\ModuleManager\Support;
 
 use \Closure;
-use WebEd\Base\ModulesManagement\Events\ModuleDisabled;
-use WebEd\Base\ModulesManagement\Events\ModuleEnabled;
+use Mrabbani\ModuleManager\Events\ModuleDisabled;
+use Mrabbani\ModuleManager\Events\ModuleEnabled;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Composer;
 
@@ -81,8 +81,8 @@ class ModulesManagement
 
     /**
      * @param $alias
-     * @param bool $withEvent
-     * return mixed
+     * @param bool|true $withEvent
+     * @return $this
      */
     public function enableModule($alias, $withEvent = true)
     {
@@ -157,6 +157,7 @@ class ModulesManagement
      * Modify the composer autoload information
      * @param $alias
      * @param bool $isDisabled
+     * @return $this
      */
     public function modifyModuleAutoload($alias, $isDisabled = false)
     {
@@ -211,6 +212,7 @@ class ModulesManagement
 
     /**
      * Run command composer dump-autoload
+     * @return $this
      */
     public function refreshComposerAutoload()
     {

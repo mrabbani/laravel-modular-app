@@ -1,4 +1,4 @@
-<?php namespace WebEd\Base\ModulesManagement\Console\Generators;
+<?php namespace Mrabbani\ModuleManager\Console\Generators;
 
 class MakeSupport extends AbstractGenerator
 {

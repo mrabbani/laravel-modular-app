@@ -1,4 +1,4 @@
-<?php namespace WebEd\Base\ModulesManagement\Providers;
+<?php namespace Mrabbani\ModuleManager\Providers;
 
 use \Illuminate\Support\ServiceProvider;
 use File;
@@ -46,22 +46,6 @@ class LoadModulesServiceProvider extends ServiceProvider
 
     private function booted()
     {
-        if ($this->notLoadedModules) {
-            foreach ($this->notLoadedModules as $key => $module) {
-                /**
-                 * Use hook here
-                 * Show the error messages
-                 */
-                /*add_action('flash_messages', function () use ($module) {
-                    echo \Html::note(
-                        'The base module of this class is enabled, but class not found: ' . $module . '. Please review and add the namespace of this module to composer autoload section, then run <b>composer dump-autoload</b>',
-                        'error',
-                        false
-                    );
-                }, $key);*/
-            }
-        }
-
-        \ModulesManagement::setModules($this->modules);
+       \ModulesManagement::setModules($this->modules);
     }
 }

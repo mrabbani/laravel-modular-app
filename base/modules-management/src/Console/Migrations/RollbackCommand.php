@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEd\Base\ModulesManagement\Console\Migrations;
+namespace Mrabbani\ModuleManager\Console\Migrations;
 
 use Illuminate\Console\ConfirmableTrait;
 use Illuminate\Database\Console\Migrations\BaseCommand;

@@ -1,4 +1,4 @@
-<?php  namespace WebEd\Base\ModulesManagement\Console\Migrations;
+<?php  namespace Mrabbani\ModuleManager\Console\Migrations;
 
 use Illuminate\Console\Command;
 

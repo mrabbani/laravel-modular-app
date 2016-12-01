@@ -1,7 +1,6 @@
-<?php namespace WebEd\Base\ModulesManagement\Console\Commands;
+<?php namespace Mrabbani\ModuleManager\Console\Commands;
 
 use Illuminate\Console\Command;
-use WebEd\Base\ModulesManagement\Support\Facades\ModulesManagementFacade;
 
 class InstallModuleCommand extends Command
 {

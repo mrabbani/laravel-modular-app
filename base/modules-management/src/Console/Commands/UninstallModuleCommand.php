@@ -1,4 +1,4 @@
-<?php namespace WebEd\Base\ModulesManagement\Console\Commands;
+<?php namespace Mrabbani\ModuleManager\Console\Commands;
 
 use Illuminate\Console\Command;
 
