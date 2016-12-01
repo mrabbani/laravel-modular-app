@@ -69,5 +69,18 @@ class ConsoleServiceProvider extends ServiceProvider
 
             $this->commands($slug);
         }
+        $this->registerRollbackCommand();
+    }
+    /**
+     * Register the "rollback" migration command.
+     *
+     * @return void
+     */
+    protected function registerRollbackCommand()
+    {
+        $this->app->singleton('webed.console.command.migration-rollback', function ($app) {
+            return new \WebEd\Base\ModulesManagement\Console\Migrations\RollbackCommand($app['migrator']);
+        });
+        $this->commands('webed.console.command.migration-rollback');
     }
 }

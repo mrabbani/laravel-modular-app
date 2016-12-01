@@ -39,7 +39,7 @@ class ModulesManagement
     public function getModule($alias = null)
     {
         if(! count($this->modules)) {
-            $this->modules = get_modules_by_type(config('module_manager.module_directory'));
+           return get_module_information($alias);
         }
 
         if (!$alias) {
@@ -91,9 +91,9 @@ class ModulesManagement
                 event(new ModuleEnabled($alias));
             }
         });
-        $result = $this->modifyModuleAutoload($alias);
+//        $result = $this->modifyModuleAutoload($alias);
 
-        return $result;
+        return $this;
     }
 
     /**
@@ -108,9 +108,9 @@ class ModulesManagement
             }
         });
 
-        $result = $this->modifyModuleAutoload($alias, true);
+//        $result = $this->modifyModuleAutoload($alias, true);
 
-        return $result;
+        return $this;
     }
 
     /**

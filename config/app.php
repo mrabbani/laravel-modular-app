@@ -166,7 +166,6 @@ return [
         /*
          * Package Service Providers...
          */
-            WebEd\Base\ModulesManagement\Providers\ModuleProvider::class,
         //
 
         /*
@@ -177,6 +176,7 @@ return [
         // ModulerApp\Providers\BroadcastServiceProvider::class,
         ModulerApp\Providers\EventServiceProvider::class,
         ModulerApp\Providers\RouteServiceProvider::class,
+        WebEd\Base\ModulesManagement\Providers\ModuleProvider::class,
 
     ],
 
