@@ -30,7 +30,7 @@ Now you can change the default *modules* directory by changing
 
 ### Available command
 
-To see all module related command run `php artisan module` into terminal
+To see all module related command run `php artisan` into terminal
 Available commands are:
 
 - `php artisan module:create {alias}`
