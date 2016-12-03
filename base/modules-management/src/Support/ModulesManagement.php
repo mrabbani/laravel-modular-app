@@ -1,6 +1,7 @@
 <?php namespace Mrabbani\ModuleManager\Support;
 
 use \Closure;
+use Illuminate\Support\Facades\Log;
 use Mrabbani\ModuleManager\Events\ModuleDisabled;
 use Mrabbani\ModuleManager\Events\ModuleEnabled;
 use Illuminate\Support\Facades\File;
@@ -206,6 +207,7 @@ class ModulesManagement
          */
         File::put(base_path('composer.json'), json_encode_pretify($composerContent));
         $this->refreshComposerAutoload();
+
 
         return $this;
     }

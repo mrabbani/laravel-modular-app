@@ -31,17 +31,8 @@ class BootstrapModuleServiceProvider extends ServiceProvider
     private function booted()
     {
         /**
-         * Register to dashboard menu
+         * Register dynamic menu or what you want when
+         * bootstrap your module
          */
-        /*\DashboardMenu::registerItem([
-            'id' => 'DummyAlias',
-            'piority' => 20,
-            'parent_id' => null,
-            'heading' => null,
-            'title' => 'DummyName',
-            'font_icon' => 'icon-puzzle',
-            'link' => '',
-            'css_class' => null,
-        ]);*/
     }
 }

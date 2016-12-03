@@ -25,7 +25,8 @@
         "psr-4": {
             "ModulerApp\\": "app/",
             "Mrabbani\\ModuleManager\\": "base/modules-management/src/",
-            "ModulerApp\\Module\\Module1\\": "modules/module1/src"
+            "ModulerApp\\Module\\Module1\\": "modules/module1/src",
+            "ModulerApp\\Module\\Module3\\": "modules/module3/src"
         }
     },
     "autoload-dev": {

@@ -34,17 +34,13 @@ class InstallModuleServiceProvider extends ServiceProvider
 
     private function booted()
     {
+        //Resolve your module dependency
+
         $this->createSchema();
-        //acl_permission()
-        //->registerPermission('Permission 1 description', 'description-1', $this->module)
-        //->registerPermission('Permission 2 description', 'description-2', $this->module);
     }
 
     private function createSchema()
     {
-        //Schema::create('field_groups', function (Blueprint $table) {
-        //    $table->engine = 'InnoDB';
-        //    $table->increments('id');
-        //});
+        \Artisan::call('module:migrate', ['alias' => $this->moduleAlias]);
     }
 }
