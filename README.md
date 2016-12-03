@@ -7,7 +7,7 @@ package will help you to manage laravel modular application easily.
 
 ### Installation
 
-`composer require mrabbani/lara-module-manager`
+<!--`composer require mrabbani/lara-module-manager`-->
 
 Add the module manager service provider to `config/app.php` file
 
