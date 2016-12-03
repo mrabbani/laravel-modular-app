@@ -1,6 +1,6 @@
 # Introduction
 When you work on small project, you will feel laravel default structure 
-is enough. But if your project grows up, Once you will think to divide 
+is enough. When your project grows up, you will think to divide 
 your app into  module where each module will contain all of it resources
 such as Controllers, Models, Views, Migrations, Config etc. These 
 package will help you to manage laravel modular application easily.
