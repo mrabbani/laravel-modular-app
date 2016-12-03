@@ -16,7 +16,7 @@ class UninstallModuleCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Uninstall WebEd module';
+    protected $description = 'Uninstall module';
 
     /**
      * @var array

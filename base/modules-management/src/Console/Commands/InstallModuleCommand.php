@@ -16,7 +16,7 @@ class InstallModuleCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Install WebEd module';
+    protected $description = 'Install module';
 
     /**
      * @var array
