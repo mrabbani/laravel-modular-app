@@ -1,0 +1,11 @@
+{
+    "alias": "module1",
+    "name": "Laravel module1",
+    "author": "Mahbub",
+    "description": "Laravel module1",
+    "namespace": "ModulerApp\\Module\\Module1",
+    "version": "1.0",
+    "autoload": "psr-4",
+    "enabled": true,
+    "installed": true
+}
