@@ -19,7 +19,7 @@ To create new module run the bellow command:
 
 If your module name is `module1` the module structure will be
 
-![Module Structure](https://github.com/mrabbani/mrabbani.github.io/tree/master/public/images/module_structure.png "Module Structure")
+![Module Structure](https://mrabbani.github.io/public/images/module_structure.png "Module Structure")
 
 ### Configuration 
 
