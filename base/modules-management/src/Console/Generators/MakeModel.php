@@ -14,6 +14,13 @@ class MakeModel extends AbstractGenerator
     ;
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module model';
+
+    /**
      * The type of class being generated.
      *
      * @var string

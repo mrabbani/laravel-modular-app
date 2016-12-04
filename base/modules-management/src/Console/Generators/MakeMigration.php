@@ -16,6 +16,12 @@ class MakeMigration extends Command
         {name : The name of the migration.}
         {--create : The table to be created.}
         {--table= : The table to migrate.}';
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module based migration file';
 
     /**
      * The type of class being generated.

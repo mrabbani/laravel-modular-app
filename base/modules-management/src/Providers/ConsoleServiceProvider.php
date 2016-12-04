@@ -44,11 +44,11 @@ class ConsoleServiceProvider extends ServiceProvider
             'module_manager.console.generator.make-middleware' => \Mrabbani\ModuleManager\Console\Generators\MakeMiddleware::class,
             'module_manager.console.generator.make-request' => \Mrabbani\ModuleManager\Console\Generators\MakeRequest::class,
             'module_manager.console.generator.make-model' => \Mrabbani\ModuleManager\Console\Generators\MakeModel::class,
-            'module_manager.console.generator.make-repository' => \Mrabbani\ModuleManager\Console\Generators\MakeRepository::class,
+//            'module_manager.console.generator.make-repository' => \Mrabbani\ModuleManager\Console\Generators\MakeRepository::class,
             'module_manager.console.generator.make-facade' => \Mrabbani\ModuleManager\Console\Generators\MakeFacade::class,
             'module_manager.console.generator.make-service' => \Mrabbani\ModuleManager\Console\Generators\MakeService::class,
             'module_manager.console.generator.make-support' => \Mrabbani\ModuleManager\Console\Generators\MakeSupport::class,
-            'module_manager.console.generator.make-view' => \Mrabbani\ModuleManager\Console\Generators\MakeView::class,
+//            'module_manager.console.generator.make-view' => \Mrabbani\ModuleManager\Console\Generators\MakeView::class,
             'module_manager.console.generator.make-migration' => \Mrabbani\ModuleManager\Console\Generators\MakeMigration::class,
             'module_manager.console.generator.make-command' => \Mrabbani\ModuleManager\Console\Generators\MakeCommand::class,
         ];

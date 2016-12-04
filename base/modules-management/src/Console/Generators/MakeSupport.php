@@ -12,6 +12,13 @@ class MakeSupport extends AbstractGenerator
     	{name : The class name}';
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module support class';
+
+    /**
      * The type of class being generated.
      *
      * @var string

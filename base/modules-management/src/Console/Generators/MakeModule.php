@@ -16,7 +16,7 @@ class MakeModule extends Command
     /**
      * @var string
      */
-    protected $description = 'WebEd modules generator.';
+    protected $description = 'Create a new module';
 
     /**
      * @var Filesystem

@@ -13,6 +13,13 @@ class MakeView extends AbstractGenerator
     	{--layout=1columns : Layout type}';
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module view';
+
+    /**
      * The type of class being generated.
      *
      * @var string

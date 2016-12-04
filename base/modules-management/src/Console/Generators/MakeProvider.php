@@ -12,6 +12,13 @@ class MakeProvider extends AbstractGenerator
     	{name : The class name}';
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module provider';
+
+    /**
      * The type of class being generated.
      *
      * @var string

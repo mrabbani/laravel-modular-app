@@ -12,6 +12,13 @@ class MakeService extends AbstractGenerator
     	{name : The class name}';
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module service class';
+
+    /**
      * The type of class being generated.
      *
      * @var string

@@ -13,6 +13,13 @@ class MakeController extends AbstractGenerator
     	{--resource : Generate a controller with route resource}';
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module controller';
+
+    /**
      * The type of class being generated.
      *
      * @var string

@@ -13,6 +13,14 @@ class MakeRepository extends AbstractGenerator
     	{--no-cache : Generate this repository without repository caching}';
 
     /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create new module repository';
+
+
+    /**
      * The type of class being generated.
      *
      * @var string
